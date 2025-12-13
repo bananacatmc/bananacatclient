@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2022 DupliCAT
+ * GNU Lesser General Public License v3.0
+ */
+
+package pro.bananacatmc.feature.mod.impl;
+
+import pro.bananacatmc.BananaCat;
+import pro.bananacatmc.feature.mod.Mod;
+import pro.bananacatmc.feature.mod.Type;
+import pro.bananacatmc.feature.setting.Setting;
+
+import java.awt.*;
+
+public class KeystrokesMod extends Mod {
+
+    public KeystrokesMod() {
+        super(
+                "Keystrokes",
+                "Shows your Keystrokes on the HUD.",
+                Type.Hud
+        );
+
+        String[] mode = {"Modern", "Legacy"};
+        BananaCat.INSTANCE.settingManager.addSetting(new Setting("Mode", this, "Modern", 0, mode));
+        BananaCat.INSTANCE.settingManager.addSetting(new Setting("Background", this, true));
+        BananaCat.INSTANCE.settingManager.addSetting(new Setting("Clicks", this, true));
+        BananaCat.INSTANCE.settingManager.addSetting(new Setting("CPS", this, true));
+        BananaCat.INSTANCE.settingManager.addSetting(new Setting("Font Color", this, new Color(255, 255, 255), new Color(255, 0, 0), 0, new float[]{0, 0}));
+    }
+}
